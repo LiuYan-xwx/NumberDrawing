@@ -22,8 +22,8 @@
 1. 前往 [Releases](https://github.com/LiuYan-xwx/NumberDrawing/releases) 界面找到最新版本，从 Assets 中下载软件。
 2. 双击打开软件即可。
 ### 从源码编译
-1. 克隆仓库到本地
-2. 使用 Visual Studio 打开解决方案
+1. 克隆仓库到本地。
+2. 使用 Visual Studio 打开解决方案。
 3. 点击`生成`→`发布选定内容`，然后点击发布。生成完成后可在目标位置找到软件。
 
 ## 开发
