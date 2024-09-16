@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using NumberDrawing.ViewModel;
+﻿using NumberDrawing.ViewModel;
+using System.Text.RegularExpressions;
+using System.Windows;
 namespace NumberDrawing
 {
     /// <summary>
@@ -7,13 +8,14 @@ namespace NumberDrawing
     /// </summary>
     public partial class MainWindow : Window
     {
-        //ValueModel valueModel = new ValueModel();
         private MainViewModel mainViewModel;
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            mainViewModel = new MainViewModel();
+            this.DataContext = mainViewModel;
         }
+
 
     }
 }

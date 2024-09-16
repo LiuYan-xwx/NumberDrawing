@@ -1,32 +1,27 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 
 namespace NumberDrawing
 {
     public class MainCommand : ICommand
     {
-        readonly Action _execute;
-        readonly Func<bool> _canExecute;
-        public MainCommand(Action action, Func<bool> canExcute)
+        private readonly Action _execute;
+        private readonly Func<bool> _canExecute;
+
+        public MainCommand(Action execute, Func<bool> canExecute)
         {
-            _canExecute = canExcute;
-            _execute = action;
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
         }
 
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object? parameter) => _canExecute();
+
+        public void Execute(object? parameter) => _execute();
+
+        public event EventHandler? CanExecuteChanged
         {
-            if (_canExecute == null)
-            {
-                return true;
-            }
-            else
-            {
-                return _canExecute();
-            }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
-        public void Execute(object parameter)
-        {
-            _execute();
-        }
-        public event EventHandler CanExecuteChanged;
     }
 }

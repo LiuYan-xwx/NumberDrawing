@@ -13,45 +13,35 @@ namespace NumberDrawing.Model
         private int _resultvalue;
         private string _buttonContent = "开始抽号";
         private bool _isDrawing = false;
+
         public int Minvalue
         {
             get => _minvalue;
-            set
-            {
-                _minvalue = value;
-            }
+            set => _minvalue = value;
         }
+
         public int Maxvalue
         {
             get => _maxvalue;
-            set
-            {
-                _maxvalue = value;
-            }
+            set => _maxvalue = value;
         }
+
         public int Resultvalue
         {
             get => _resultvalue;
-            set
-            {
-                _resultvalue = value;
-            }
+            set => _resultvalue = value;
         }
+
         public string ButtonContent
         {
             get => _buttonContent;
-            set
-            {
-                _buttonContent = value;
-            }
+            set => _buttonContent = value;
         }
+
         public bool IsDrawing
         {
             get => _isDrawing;
-            set
-            {
-                _isDrawing = value;
-            }
+            set => _isDrawing = value;
         }
     }
 }

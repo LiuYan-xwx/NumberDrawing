@@ -1,42 +1,49 @@
-﻿using System.ComponentModel;
+﻿using NumberDrawing.Model;
+using System.ComponentModel;
 using System.Timers;
 using System.Windows.Input;
-using NumberDrawing.Model;
-
+using System.Windows.Threading;
 
 namespace NumberDrawing.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         private void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private MainModel _mainModel = new();
+        private readonly MainModel _mainModel = new();
+        private readonly Random _random = new();
 
-        private System.Timers.Timer _timer;
-        private Random _random = new Random();
+        private readonly DispatcherTimer _timer;
 
         public MainViewModel()
         {
-            _timer = new System.Timers.Timer(60);
-            _timer.Elapsed += OnTimerElapsed;
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMilliseconds(40);
+            _timer.Tick += OnTimerElapsed;
         }
 
-        void OnTimerElapsed(object sender, ElapsedEventArgs e)
+        private void OnTimerElapsed(object? sender, EventArgs e)
         {
-            Resultvalue = _random.Next(Minvalue, Maxvalue + 1);
+          Resultvalue = _random.Next(Minvalue, Maxvalue + 1);
+
         }
+
+
 
         public int Minvalue
         {
             get => _mainModel.Minvalue;
             set
             {
-                _mainModel.Minvalue = value;
-                RaisePropertyChanged(nameof(Minvalue));
+                if (_mainModel.Minvalue != value)
+                {
+                    _mainModel.Minvalue = value;
+                    RaisePropertyChanged(nameof(Minvalue));
+                }
             }
         }
         public int Maxvalue
@@ -44,8 +51,11 @@ namespace NumberDrawing.ViewModel
             get => _mainModel.Maxvalue;
             set
             {
-                _mainModel.Maxvalue = value;
-                RaisePropertyChanged(nameof(Maxvalue));
+                if (_mainModel.Maxvalue != value)
+                {
+                    _mainModel.Maxvalue = value;
+                    RaisePropertyChanged(nameof(Maxvalue));
+                }
             }
         }
         public int Resultvalue
@@ -53,8 +63,11 @@ namespace NumberDrawing.ViewModel
             get => _mainModel.Resultvalue;
             set
             {
-                _mainModel.Resultvalue = value;
-                RaisePropertyChanged(nameof(Resultvalue));
+                if (_mainModel.Resultvalue != value)
+                {
+                    _mainModel.Resultvalue = value;
+                    RaisePropertyChanged(nameof(Resultvalue));
+                }
             }
         }
         public string ButtonContent
@@ -62,8 +75,11 @@ namespace NumberDrawing.ViewModel
             get => _mainModel.ButtonContent;
             set
             {
-                _mainModel.ButtonContent = value;
-                RaisePropertyChanged(nameof(ButtonContent));
+                if (_mainModel.ButtonContent != value)
+                {
+                    _mainModel.ButtonContent = value;
+                    RaisePropertyChanged(nameof(ButtonContent));
+                }
             }
         }
         public bool IsDrawing
@@ -71,15 +87,18 @@ namespace NumberDrawing.ViewModel
             get => _mainModel.IsDrawing;
             set
             {
-                _mainModel.IsDrawing = value;
-                RaisePropertyChanged(nameof(IsDrawing));
+                if (_mainModel.IsDrawing != value)
+                {
+                    _mainModel.IsDrawing = value;
+                    RaisePropertyChanged(nameof(IsDrawing));
+                }
             }
         }
 
         /// <summary>
         /// 抽号
         /// </summary>
-        void Drawing()
+        private void Drawing()
         {
             if (IsDrawing)
             {
@@ -93,14 +112,7 @@ namespace NumberDrawing.ViewModel
                 IsDrawing = true;
                 _timer.Start();
             }
-
         }
-        public ICommand DrawingCommand
-        {
-            get
-            {
-                return new MainCommand(Drawing, () => true);
-            }
-        }
+        public ICommand DrawingCommand => new MainCommand(Drawing, () => true);
     }
 }

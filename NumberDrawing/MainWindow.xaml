@@ -18,7 +18,7 @@
         <StackPanel HorizontalAlignment="Left" Grid.Column="0">
             <TextBlock FontSize="25" Margin="10 10 0 0">
             <Run Text="请输入最小值:"/>
-            <TextBox x:Name="MinValue" Text="{Binding Minvalue}"  MinWidth="120" FontSize="20"/>
+            <TextBox x:Name="MinValue" Text="{Binding Minvalue}" MinWidth="120" FontSize="20"/>
             </TextBlock>
 
             <TextBlock FontSize="25" Margin="10 10 0 0">
@@ -36,7 +36,7 @@
             <TextBlock FontSize="25" Margin="10 10 0 0">
             <Run Text="抽奖结果:"/>
             </TextBlock>
-            <TextBlock x:Name="Result" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Text="{Binding Resultvalue}" Grid.Row="1" FontSize="100"/>
+            <TextBlock x:Name="Result" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Text="{Binding Resultvalue, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" FontSize="100"/>
         </Grid>
     </Grid>
 </Window>
