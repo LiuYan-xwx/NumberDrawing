@@ -13,7 +13,7 @@ namespace NumberDrawing
         {
             InitializeComponent();
             mainViewModel = new MainViewModel();
-            this.DataContext = mainViewModel;
+            DataContext = mainViewModel;
         }
 
 
