@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
          name: NumberDrawing
-         path: ./publish
+         path: ./publish/NumberDrawing.exe
 
   publish:
     runs-on: windows-latest
