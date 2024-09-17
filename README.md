@@ -18,13 +18,16 @@
 - 系统架构为 x64
 - 推荐为 Windows 10 及以上系统，Windows 7 未经测试
 - 不支持除 Windows 以外任何系统
-### 使用预构建版本
+### 使用发行版
 1. 前往 [Releases](https://github.com/LiuYan-xwx/NumberDrawing/releases) 界面找到最新版本，从 Assets 中下载软件。
 2. 双击打开软件即可。
 ### 从源码编译
 1. 克隆仓库到本地。
 2. 使用 Visual Studio 打开解决方案。
 3. 点击`生成`→`发布选定内容`，然后点击发布。生成完成后可在目标位置找到软件。
+> ### 自动构建版本  
+> 本项目也使用了 Github Actions 自动构建，每次 push 触发，您可以访问本仓库的 `Actions` 页面下载最新构建。  
+> **注意！:** 自动构建的版本包含最新的更改，软件可能会不稳定，请谨慎使用。
 
 ## 开发
 本软件基于 .NET 8.0 开发，以 C# 作为编程语言，使用了 WPF 为框架，尝试使用了 [MVVM](https://learn.microsoft.com/zh-cn/dotnet/architecture/maui/mvvm) 架构开发（初学，尝试）。
