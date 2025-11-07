@@ -1,8 +1,7 @@
 # NumberDrawing
 
->[!warning]
->
-> **!WARNING! 此项目仅为我这个菜鸡新手的练习作，只是在初初初初学 WPF，代码没有参考意义。**
+> [!warning]
+> 这是我初学 WPF 时所做的练习项目，以及也是第一次使用 Github、创建仓库、使用 Git、创建发行版，使用工作流等做出的东西
 
 ## 简介
 本软件为一款抽号软件，当点击开始抽号时，结果区会有滚动的数字以增加趣味性。再次点击停止抽号按钮，数字停止滚动，抽出一个幸运数字。
@@ -30,8 +29,8 @@
 > **注意！:** 自动构建的版本包含最新的更改，软件可能会不稳定，请谨慎使用。
 
 ## 开发
-本软件基于 .NET 8.0 开发，以 C# 作为编程语言，使用了 WPF 为框架，尝试使用了 [MVVM](https://learn.microsoft.com/zh-cn/dotnet/architecture/maui/mvvm) 架构开发（初学，尝试）。
-使用了 [Microsoft Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/) 为 IDE 开发。
+本软件基于 .NET 8.0 开发，以 C# 作为编程语言，使用了 WPF 为框架，尝试使用了 [MVVM](https://learn.microsoft.com/zh-cn/dotnet/architecture/maui/mvvm) 架构开发。  
+使用了 [Microsoft Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/) 为 IDE。
 
 ## 使用的第三方库
 [iNKORE-NET/UI.WPF.Modern](https://github.com/iNKORE-NET/UI.WPF.Modern) (UI)
